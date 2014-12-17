@@ -1,0 +1,37 @@
+<template name="gallery">
+	<div class="gallery">
+		<div id="carousel" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				{{# each items }}
+					<div class="item {{# if isCero index }}active{{/ if }}">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-12">
+									<img src="{{ image.link }}">
+									<p>
+										<span class="name">{{ name }}</span>
+										<span class="size">{{ size }}</span>
+										<span class="date">{{ date }}</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				{{/ each }}
+			</div>
+			<div class="container thumbs">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="carousel-indicators">
+							{{# each items }}
+								<a data-target="#carousel" data-slide-to="{{ index }}" class="thumb {{# if isCero index }}active{{/ if }}">
+									<div style="background-image: url({{ image.link }})"></div>
+								</a>
+							{{/ each }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

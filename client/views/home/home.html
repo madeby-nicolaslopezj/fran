@@ -1,0 +1,34 @@
+<template name="home">
+	<div class="home">
+		<div id="carousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				{{# each homeImages }}
+					<li data-target="#carousel" data-slide-to="{{ index }}" class="{{# if isCero index }}active{{/ if }}"></li>
+				{{/ each }}
+			</ol>
+			<div class="carousel-inner">
+				{{# each homeImages }}
+					<div class="item {{# if isCero index }}active{{/ if }}">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-12">
+									<img src="{{ image.link }}">
+								</div>
+							</div>
+						</div>
+					</div>
+				{{/ each }}
+			</div>
+		</div>
+
+		<div class="intro">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+						{{{ dict 'homeIntro.content' }}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
