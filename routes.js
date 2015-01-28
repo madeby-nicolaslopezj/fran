@@ -1,48 +1,53 @@
-Router.map(function() {
-
-	this.route('home', {
-		path: '/',
-		layoutTemplate: 'baseLayout',
-		loadingTemplate: 'adminLoading',
-		waitOn: function() {
-			return [orion.subs.subscribe('dictionary'), orion.subs.subscribe('entity', 'homeImages')]
+var afterAction = function() {
+	if (!Meteor.isClient) {
+		return;
+	}
+	SEO.set({
+		title: orion.dictionary.get('seoTitle'),
+		link: {
+			icon: orion.dictionary.get('seoFavIcon.url'),
 		},
-	});
-
-	this.route('paintings', {
-		path: '/pinturas-y-dibujos',
-		template: 'gallery',
-		layoutTemplate: 'baseLayout',
-		loadingTemplate: 'adminLoading',
-		waitOn: function() {
-			return [orion.subs.subscribe('dictionary'), orion.subs.subscribe('entity', 'paintings')]
+		meta: {
+			'description': orion.dictionary.get('seoDescription')
 		},
-		data: function() {
-			return {
-				items: orion.entities.paintings.collection.find().map(function(document, index){
-					document.index = index;
-					return document;
-				})
-			}
+		og: {
+			'title': orion.dictionary.get('seoTitle'),
+			'description': orion.dictionary.get('seoDescription'),
+			'image': orion.dictionary.get('seoImage.url')
 		}
 	});
+}
 
-	this.route('ilustrations', {
-		path: '/ilustraciones',
-		template: 'gallery',
-		layoutTemplate: 'baseLayout',
-		loadingTemplate: 'adminLoading',
-		waitOn: function() {
-			return [orion.subs.subscribe('dictionary'), orion.subs.subscribe('entity', 'ilustrations')]
-		},
-		data: function() {
-			return {
-				items: orion.entities.ilustrations.collection.find().map(function(document, index){
-					document.index = index;
-					return document;
-				})
-			}
+Router.route('/', {
+	name: 'pinturas',
+	template: 'home',
+	loadingTemplate: 'adminLoading',
+	onAfterAction: afterAction,
+	waitOn: function() {
+		return [orion.subs.subscribe('dictionary'), orion.subs.subscribe('entity', 'paintings')]
+	},
+	data: function() {
+		return {
+			items: orion.entities.paintings.collection.find()
 		}
-	});
+	}
+});
 
+Router.route('/ilustraciones', {
+	name: 'ilustraciones',
+	template: 'home',
+	loadingTemplate: 'adminLoading',
+	onAfterAction: afterAction,
+	waitOn: function() {
+		return [orion.subs.subscribe('dictionary'), orion.subs.subscribe('entity', 'ilustrations')]
+	},
+	data: function() {
+		return {
+			items: orion.entities.ilustrations.collection.find()
+		}
+	}
+});
+
+Router.configure({
+    trackPageView: true
 });

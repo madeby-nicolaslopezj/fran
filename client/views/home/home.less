@@ -1,36 +1,108 @@
 @import "/client/stylesheets/lib.import.less";
 
 @item-height: 500px;
+@indicators-size: 50px;
 
-.home {
-
+.headersito {
+	padding: 0 3%;
 	margin-bottom: 20px;
 
-	.item {
-
-		height: @item-height;
-		text-align: center;
-
-		.col-sm-12 {
-			overflow: hidden;
-		}
-
-		.name {
-			font-weight: bold;
-		}
-		.size {
-			font-style: italic;
-		}
-		.date {
-			
+	h1 {
+		margin-bottom: 5px;
+		font-size: 28px;
+		font-weight: 100;
+		@media (max-width: @screen-xs-max) {
+			font-size: 20px;
 		}
 	}
 
-	.carousel-indicators {
-		bottom: 40px;
+	.tabs {
+		float: right;
+		position: relative;
+		bottom: -10px;
+		a {
+			margin-left: 10px;
+			&.active {
+				color: @link-hover-color;
+			}
+		}
+
+		@media (max-width: @screen-xs-max) {
+			font-size: 16px;
+			bottom: -1px;
+		}
 	}
 
-	.intro {
-		margin-top: 20px;
+	.lineadecosita {
+		border-bottom: solid 1px @text-color;
+	}
+}
+
+
+.item {
+	text-align: center;
+	.descripcionsita {
+		margin-top: 8px;
+		font-size: 12px;
+		height: 20px;
+		min-width: 10px;
+	}
+
+	&.zoom {
+		background-color: white;
+		cursor: zoom-out;
+		position: fixed !important;
+		height: 100% !important;
+		width: 100% !important;
+		top: 0;
+		left: 0;
+		.imagensita {
+			background-color: white;
+			cursor: zoom-out;
+			position: fixed;
+			background-size: 120%;
+			height: 100% !important;
+			width: 100% !important;
+			top: 0;
+			left: 0;
+		}
+	}
+}
+
+.imagensita {
+	height: @item-height;
+	text-align: center;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: zoom-in;
+}
+
+.indicators {
+	list-style: none;
+	padding-top: 20px;
+	padding-left: 0;
+	text-align: center;
+
+	li {
+		cursor: pointer;
+		margin: -2px;
+		display: inline-block;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		height: @indicators-size;
+		width: @indicators-size;
+	}
+}
+
+.iconitos {
+	text-align: center;
+	font-size: 22px;
+	margin: 10px;
+	@media (max-width: @screen-xs-max) {
+		position: relative;
+		font-size: 22px;
+		bottom: 5px;
 	}
 }

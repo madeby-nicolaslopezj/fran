@@ -1,26 +1,18 @@
 orion.addEntity('paintings', {
-    image: {
-        type: orion.attributes.image,
-        label: "Image"
-    },
-    name: {
+    description: {
         type: String,
-        label: "Name"
-    },
-    size: {
-        type: String,
-        label: "Size"
-    },
-    date: {
-        type: String,
-        label: "Date"
-    }
+        label: "Descripcionsita"
+    }, 
+    image: orion.attribute('file', {
+        label: 'Fotito'
+    })
 }, {
-    sidebarName: 'Pinturas y Dibujos',
-    pluralName: 'Pinturas y Dibujos',
-    singularName: 'Pintura o Dibujo',
-    defaultIndexTableFields: [
-        orion.adminIndexAttributeViews.image('image', 'Image'),
-        { key: 'name', label: 'Name' }
+    icon: 'photo',
+    sidebarName: 'Pinturas',
+    pluralName: 'Pinturas',
+    singularName: 'Pintura',
+    tableColumns: [
+        orion.attributeColumn('file', 'image', 'Foto'),
+        { data:'description', title: 'Descripción' },
     ]
 });

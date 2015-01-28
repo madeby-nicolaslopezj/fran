@@ -1,34 +1,35 @@
 <template name="home">
-	<div class="home">
-		<div id="carousel" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				{{# each homeImages }}
-					<li data-target="#carousel" data-slide-to="{{ index }}" class="{{# if isCero index }}active{{/ if }}"></li>
-				{{/ each }}
-			</ol>
-			<div class="carousel-inner">
-				{{# each homeImages }}
-					<div class="item {{# if isCero index }}active{{/ if }}">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-12">
-									<img src="{{ image.link }}">
-								</div>
-							</div>
-						</div>
-					</div>
-				{{/ each }}
-			</div>
+	<div class="headersito">
+		<div class="tabs">
+			<a class="{{ isActiveRoute regex='pinturas' }}" href="{{ pathFor 'pinturas' }}">Pinturas</a><a class="{{ isActiveRoute regex='ilustraciones' }}" href="{{ pathFor 'ilustraciones' }}">Ilustraciones</a>
 		</div>
-
-		<div class="intro">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 col-sm-offset-2">
-						{{{ dict 'homeIntro.content' }}}
-					</div>
+		<h1>
+			Francisca Infante
+		</h1>
+		<div class="lineadecosita"></div>
+	</div>
+	<div id="carousel" class="carousel slide">
+		<div class="carousel-inner">
+			{{# each items }}
+				<div class="item {{# if isCero index }}active{{/ if }}">
+					<div class="imagensita" style="background-image: url({{ image.url }})"></div>
+					<div class="descripcionsita">{{ description }}</div>
 				</div>
-			</div>
+			{{/ each }}
 		</div>
+		<ul class="indicators">
+			{{# each items }}
+				<li data-target="#carousel" data-slide-to="{{ index }}" class="{{# if isCero index }}active{{/ if }}" style="background-image: url({{ image.url }})">
+				</li>
+			{{/ each }}
+		</ul>
+	</div>
+	<div class="iconitos">
+		<a href="mailto:fran.infante@live.com">
+			<i class="fa fa-fw fa-envelope"></i>
+		</a>
+		<a href="http://instagram.com/franube">
+			<i class="fa fa-fw fa-instagram"></i>
+		</a>
 	</div>
 </template>
