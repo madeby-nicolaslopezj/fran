@@ -5,6 +5,9 @@ orion.addEntity('paintings', {
     }, 
     image: orion.attribute('file', {
         label: 'Fotito'
+    }), 
+    thumb: orion.attribute('file', {
+        label: 'Fotito Chiquitita'
     })
 }, {
     icon: 'photo',
@@ -12,7 +15,7 @@ orion.addEntity('paintings', {
     pluralName: 'Pinturas',
     singularName: 'Pintura',
     tableColumns: [
-        orion.attributeColumn('file', 'image', 'Foto'),
+        orion.attributeColumn('file', 'thumb', 'Foto'),
         { data:'description', title: 'Descripción' },
     ]
 });

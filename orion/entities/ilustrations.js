@@ -1,6 +1,9 @@
 orion.addEntity('ilustrations', {
     image: orion.attribute('file', {
         label: 'Fotito'
+    }), 
+    thumb: orion.attribute('file', {
+        label: 'Fotito Chiquitita'
     })
 }, {
     icon: 'pencil',
@@ -8,6 +11,6 @@ orion.addEntity('ilustrations', {
     pluralName: 'Ilustraciones',
     singularName: 'Ilustración',
     tableColumns: [
-        orion.attributeColumn('file', 'image', 'Foto'),
+        orion.attributeColumn('file', 'thumb', 'Foto'),
     ]
 });
