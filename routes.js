@@ -29,7 +29,7 @@ Router.route('/', {
 	},
 	data: function() {
 		return {
-			items: orion.entities.paintings.collection.find()
+			items: orion.entities.paintings.collection.find({}, { sort: { createdAt: 1 } })
 		}
 	}
 });
@@ -44,7 +44,7 @@ Router.route('/ilustraciones', {
 	},
 	data: function() {
 		return {
-			items: orion.entities.ilustrations.collection.find()
+			items: orion.entities.ilustrations.collection.find({}, { sort: { createdAt: 1 } })
 		}
 	}
 });
