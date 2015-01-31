@@ -24,6 +24,7 @@ Router.route('/', {
 	template: 'home',
 	loadingTemplate: 'adminLoading',
 	onAfterAction: afterAction,
+	fastRender: true,
 	waitOn: function() {
 		return [orion.subs.subscribe('dictionary'), orion.subs.subscribe('entity', 'paintings')]
 	},
@@ -39,6 +40,7 @@ Router.route('/ilustraciones', {
 	template: 'home',
 	loadingTemplate: 'adminLoading',
 	onAfterAction: afterAction,
+	fastRender: true,
 	waitOn: function() {
 		return [orion.subs.subscribe('dictionary'), orion.subs.subscribe('entity', 'ilustrations')]
 	},
