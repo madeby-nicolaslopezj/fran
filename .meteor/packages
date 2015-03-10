@@ -4,8 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-orionjs:core
-orionjs:styles
 orionjs:file-attribute
 orionjs:filesystem
 orionjs:s3
@@ -15,3 +13,4 @@ reywood:iron-router-ga
 spiderable
 manuelschoebel:ms-seo
 meteorhacks:fast-render
+orionjs:bootstrap
