@@ -1,7 +1,6 @@
 orion.dictionary.addDefinition('seoTitle', 'seo', {
 	type: String,
 	label: "Title of the page",
-	optional: true,
 });
 
 orion.dictionary.addDefinition('seoDescription', 'seo', {
