@@ -21,6 +21,7 @@ var afterAction = function() {
 Router.route('/', {
 	name: 'pinturas',
 	template: 'home',
+	layoutTemplate: 'layout',
 	loadingTemplate: 'loading',
 	onAfterAction: afterAction,
 	fastRender: true,
@@ -29,7 +30,7 @@ Router.route('/', {
 	},
 	data: function() {
 		return {
-			items: Paintings.find({}, { sort: { createdAt: 1 } })
+			items: Paintings.find({}, { sort: { lugar: 1 } })
 		}
 	}
 });
@@ -37,6 +38,7 @@ Router.route('/', {
 Router.route('/ilustraciones', {
 	name: 'ilustraciones',
 	template: 'home',
+	layoutTemplate: 'layout',
 	loadingTemplate: 'loading',
 	onAfterAction: afterAction,
 	fastRender: true,
@@ -45,7 +47,7 @@ Router.route('/ilustraciones', {
 	},
 	data: function() {
 		return {
-			items: Ilustrations.find({}, { sort: { createdAt: 1 } })
+			items: Ilustrations.find({}, { sort: { lugar: 1 } })
 		}
 	}
 });

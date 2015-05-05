@@ -1,4 +1,4 @@
-<template name="home">
+<template name="layout">
 	<div class="headersito">
 		<div class="tabs">
 			<a class="{{ isActiveRoute regex='pinturas' }}" href="{{ pathFor 'pinturas' }}">Pinturas</a><a class="{{ isActiveRoute regex='ilustraciones' }}" href="{{ pathFor 'ilustraciones' }}">Ilustraciones</a>
@@ -8,6 +8,10 @@
 		</h1>
 		<div class="lineadecosita"></div>
 	</div>
+	{{> yield }}
+</template>
+
+<template name="home">
 	<div id="carousel" class="carousel slide">
 		<div class="carousel-inner">
 			{{# each items }}
