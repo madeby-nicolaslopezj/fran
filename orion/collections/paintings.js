@@ -3,6 +3,7 @@ Paintings = new orion.collection('paintings', {
     singularName: 'Pintura',
     tabular: {
         columns: [
+            { data: 'lugar', title: 'Lugar' },
             orion.attributeColumn('file', 'thumb', 'Foto'),
             { data:'description', title: 'Descripción' },
         ]
@@ -10,6 +11,10 @@ Paintings = new orion.collection('paintings', {
 })
 
 Paintings.attachSchema(new SimpleSchema({
+    lugar: {
+        type: Number,
+        label: 'Lugar'
+    },
     description: {
         type: String,
         label: "Descripcionsita"
