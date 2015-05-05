@@ -10,7 +10,7 @@
 	h1 {
 		text-transform: uppercase;
 		margin-bottom: 5px;
-		font-size: 24px;
+		font-size: 18px;
 		letter-spacing: 2px;
 		font-weight: 200;
 		@media (max-width: @screen-xs-max) {
@@ -24,13 +24,15 @@
 		text-transform: uppercase;
 		float: right;
 		position: relative;
-		bottom: -5px;
-		font-size: 14px;
+		font-size: 13px;
 		a {
-			color: lighten(@link-hover-color, 30%);
+			color: @link-hover-color;
 			margin: 0 10px;
 			&.active {
-				color: @link-hover-color;
+				color: lighten(@link-hover-color, 30%);
+			}
+			&:hover {
+				text-decoration: line-through;
 			}
 		}
 		a:last-child {
