@@ -22,12 +22,3 @@ Ilustrations.attachSchema(new SimpleSchema({
     }),
     createdAt: orion.attribute('createdAt')
 }));
-
-/**
- *
-var lugar = 1;
-Ilustrations.find({}, { sort: { createdAt: 1 } }).map(function(item) {
-    Ilustrations.update(item._id, { $set: { lugar: lugar } });
-    lugar++;
-})
- */

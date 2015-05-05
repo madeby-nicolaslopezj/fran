@@ -8,33 +8,51 @@
 	margin-bottom: 20px;
 
 	h1 {
+		text-transform: uppercase;
 		margin-bottom: 5px;
-		font-size: 28px;
-		font-weight: 100;
+		font-size: 24px;
+		letter-spacing: 2px;
+		font-weight: 200;
 		@media (max-width: @screen-xs-max) {
 			font-size: 20px;
+			text-align: center;
 		}
 	}
 
 	.tabs {
+		font-weight: 300;
+		text-transform: uppercase;
 		float: right;
 		position: relative;
-		bottom: -10px;
+		bottom: -5px;
 		a {
-			margin-left: 10px;
+			color: lighten(@link-hover-color, 30%);
+			margin: 0 10px;
 			&.active {
 				color: @link-hover-color;
 			}
 		}
+		a:last-child {
+			margin-right: 0;
+		}
+	}
 
-		@media (max-width: @screen-xs-max) {
-			font-size: 16px;
-			bottom: -1px;
+	.tabs-xs {
+		font-weight: 300;
+		text-align: center;
+		text-transform: uppercase;
+		margin-bottom: 3px;
+		font-size: 12px;
+		a {
+			color: lighten(@link-hover-color, 30%);
+			&.active {
+				color: @link-hover-color;
+			}
 		}
 	}
 
 	.lineadecosita {
-		border-bottom: solid 1px @text-color;
+		border-bottom: solid 1px lighten(@text-color, 60%);
 	}
 }
 
@@ -42,6 +60,7 @@
 .item {
 	text-align: center;
 	.descripcionsita {
+		font-weight: 300;
 		margin-top: 8px;
 		font-size: 12px;
 		height: 20px;
@@ -52,6 +71,7 @@
 		background-color: white;
 		cursor: zoom-out;
 		position: fixed !important;
+		z-index: 10000;
 		height: 100% !important;
 		width: 100% !important;
 		top: 0;
@@ -86,7 +106,9 @@
 
 	li {
 		cursor: pointer;
-		margin: -2px;
+		position: relative;
+		margin: -2.4px -5px;
+		overflow: hidden;
 		display: inline-block;
 		background-size: cover;
 		background-position: center;
