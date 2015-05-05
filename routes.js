@@ -2,19 +2,18 @@ var afterAction = function() {
 	if (!Meteor.isClient) {
 		return;
 	}
-	ga('send', 'pageview');
 	SEO.set({
-		title: orion.dictionary.get('seoTitle'),
+		title: orion.dictionary.get('seo.title'),
 		link: {
-			icon: orion.dictionary.get('seoFavIcon.url'),
+			icon: orion.dictionary.get('seo.favicon.url'),
 		},
 		meta: {
-			'description': orion.dictionary.get('seoDescription')
+			'description': orion.dictionary.get('seo.description')
 		},
 		og: {
-			'title': orion.dictionary.get('seoTitle'),
-			'description': orion.dictionary.get('seoDescription'),
-			'image': orion.dictionary.get('seoImage.url')
+			'title': orion.dictionary.get('seo.title'),
+			'description': orion.dictionary.get('seo.description'),
+			'image': orion.dictionary.get('seo.image.url')
 		}
 	});
 }
@@ -22,15 +21,15 @@ var afterAction = function() {
 Router.route('/', {
 	name: 'pinturas',
 	template: 'home',
-	loadingTemplate: 'adminLoading',
+	loadingTemplate: 'loading',
 	onAfterAction: afterAction,
 	fastRender: true,
 	waitOn: function() {
-		return [orion.subs.subscribe('dictionary'), orion.subs.subscribe('entity', 'paintings')]
+		return Meteor.subscribe('paintings');
 	},
 	data: function() {
 		return {
-			items: orion.entities.paintings.collection.find({}, { sort: { createdAt: 1 } })
+			items: Paintings.find({}, { sort: { createdAt: 1 } })
 		}
 	}
 });
@@ -38,19 +37,15 @@ Router.route('/', {
 Router.route('/ilustraciones', {
 	name: 'ilustraciones',
 	template: 'home',
-	loadingTemplate: 'adminLoading',
+	loadingTemplate: 'loading',
 	onAfterAction: afterAction,
 	fastRender: true,
 	waitOn: function() {
-		return [orion.subs.subscribe('dictionary'), orion.subs.subscribe('entity', 'ilustrations')]
+		return Meteor.subscribe('ilustrations');
 	},
 	data: function() {
 		return {
-			items: orion.entities.ilustrations.collection.find({}, { sort: { createdAt: 1 } })
+			items: Ilustrations.find({}, { sort: { createdAt: 1 } })
 		}
 	}
-});
-
-Router.configure({
-    trackPageView: true
 });

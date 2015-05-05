@@ -4,13 +4,14 @@
 # but you can also edit it by hand.
 
 meteor-platform
+orionjs:core
+orionjs:bootstrap
 orionjs:file-attribute
 orionjs:filesystem
 orionjs:s3
-orionjs:froala-editor
+fortawesome:fontawesome
 zimme:iron-router-active
-reywood:iron-router-ga
 spiderable
 manuelschoebel:ms-seo
 meteorhacks:fast-render
-orionjs:bootstrap
+less

@@ -1,9 +1,9 @@
-orion.dictionary.addDefinition('seoTitle', 'seo', {
+orion.dictionary.addDefinition('title', 'seo', {
 	type: String,
 	label: "Title of the page",
 });
 
-orion.dictionary.addDefinition('seoDescription', 'seo', {
+orion.dictionary.addDefinition('description', 'seo', {
 	type: String,
 	label: "Description",
 	optional: true,
@@ -12,14 +12,14 @@ orion.dictionary.addDefinition('seoDescription', 'seo', {
 	}
 });
 
-orion.dictionary.addDefinition('seoImage', 'seo',  
+orion.dictionary.addDefinition('image', 'seo',  
 	orion.attribute('file', {
         label: "Image",
     	optional: true
     })
 );
 
-orion.dictionary.addDefinition('seoFavIcon', 'seo',  
+orion.dictionary.addDefinition('favicon', 'seo',  
 	orion.attribute('file', {
         label: "Fav Icon",
     	optional: true
