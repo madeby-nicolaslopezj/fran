@@ -51,3 +51,11 @@ Router.route('/ilustraciones', {
 		}
 	}
 });
+
+Router.route('/contacto', {
+	name: 'contacto',
+	template: 'contacto',
+	layoutTemplate: 'layout',
+	loadingTemplate: 'loading',
+	onAfterAction: afterAction,
+});

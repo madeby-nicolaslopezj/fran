@@ -32,7 +32,7 @@ Template.home.events({
 
 Template.home.rendered = function () {
 	var resizeItem = function() {
-		var itemHeight = $(window).height() - $(".headersito").outerHeight() - $(".indicators").outerHeight() - $(".iconitos").outerHeight() - 100;
+		var itemHeight = $(window).height() - $(".headersito").outerHeight() - $(".indicators").outerHeight() - 120;
 		$(".imagensita").height(itemHeight);
 	}
 	resizeItem();

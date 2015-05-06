@@ -1,0 +1,19 @@
+<template name="layout">
+  <div class="headersito">
+    <div class="tabs hidden-xs">
+      <a class="{{ isActiveRoute regex='pinturas' }}" href="{{ pathFor 'pinturas' }}">Pinturas y Dibujos</a> - <a class="{{ isActiveRoute regex='ilustraciones' }}" href="{{ pathFor 'ilustraciones' }}">Ilustraciones</a> - <a class="{{ isActiveRoute regex='contacto' }}" href="{{ pathFor 'contacto' }}">Contacto</a>
+    </div>
+    <h1>
+      Francisca Infante
+    </h1>
+
+    <div class="tabs-xs visible-xs">
+      <a class="{{ isActiveRoute regex='pinturas' }}" href="{{ pathFor 'pinturas' }}">Pinturas y Dibujos</a>
+      <a class="{{ isActiveRoute regex='ilustraciones' }}" href="{{ pathFor 'ilustraciones' }}">Ilustraciones</a>
+      <a class="{{ isActiveRoute regex='contacto' }}" href="{{ pathFor 'contacto' }}">Contacto</a>
+    </div>
+
+    <div class="lineadecosita"></div>
+  </div>
+  {{> yield }}
+</template>

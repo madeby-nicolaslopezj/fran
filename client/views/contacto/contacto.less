@@ -1,0 +1,49 @@
+@import "/client/stylesheets/lib.import.less";
+
+
+@line-color: lighten(#000, 40%);
+@background-color: #fff;
+
+.container-cosito {
+  padding: 10px 10%;
+
+  h3 {
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+
+  button {
+    background-color: @background-color;
+    border-color: @line-color;
+    color: @line-color;
+    border-radius: 0;
+    font-size: 12px;
+    &:hover {
+      background-color: @line-color;
+      color: @background-color;
+    }
+  }
+
+  input, textarea {
+    background-color: @background-color;
+    border-color: @line-color;
+    color: @line-color;
+    border-radius: 0;
+    font-size: 12px;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .lacosita-social {
+    .fa {
+      color: @line-color;
+    }
+  }
+
+  @media (max-width: @screen-xs-max) {
+    .lacosita-social {
+      font-size: 12px;
+    }
+  }
+}
