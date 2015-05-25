@@ -1,22 +1,24 @@
-var afterAction = function() {
-	if (!Meteor.isClient) {
-		return;
-	}
-	GAnalytics.pageview(this.route.getName());
-	SEO.set({
-		title: orion.dictionary.get('seo.title'),
-		link: {
-			icon: orion.dictionary.get('seo.favicon.url'),
-		},
-		meta: {
-			'description': orion.dictionary.get('seo.description')
-		},
-		og: {
-			'title': orion.dictionary.get('seo.title'),
-			'description': orion.dictionary.get('seo.description'),
-			'image': orion.dictionary.get('seo.image.url')
+var getAfterAction = function(title) {
+	return function() {
+		if (!Meteor.isClient) {
+			return;
 		}
-	});
+		GAnalytics.pageview(this.route.getName());
+		SEO.set({
+			title: title ? title + ' - ' + orion.dictionary.get('seo.title') : orion.dictionary.get('seo.title'),
+			link: {
+				icon: orion.dictionary.get('seo.favicon.url'),
+			},
+			meta: {
+				'description': orion.dictionary.get('seo.description')
+			},
+			og: {
+				'title': orion.dictionary.get('seo.title'),
+				'description': orion.dictionary.get('seo.description'),
+				'image': orion.dictionary.get('seo.image.url')
+			}
+		});
+	}
 }
 
 Router.route('/', {
@@ -24,7 +26,7 @@ Router.route('/', {
 	template: 'home',
 	layoutTemplate: 'layout',
 	loadingTemplate: 'loading',
-	onAfterAction: afterAction,
+	onAfterAction: getAfterAction('Pinturas'),
 	fastRender: true,
 	waitOn: function() {
 		return Meteor.subscribe('paintings');
@@ -41,7 +43,7 @@ Router.route('/ilustraciones', {
 	template: 'home',
 	layoutTemplate: 'layout',
 	loadingTemplate: 'loading',
-	onAfterAction: afterAction,
+	onAfterAction: getAfterAction('Ilustraciones'),
 	fastRender: true,
 	waitOn: function() {
 		return Meteor.subscribe('ilustrations');
@@ -58,5 +60,5 @@ Router.route('/contacto', {
 	template: 'contacto',
 	layoutTemplate: 'layout',
 	loadingTemplate: 'loading',
-	onAfterAction: afterAction,
+	onAfterAction: getAfterAction('Contacto'),
 });
