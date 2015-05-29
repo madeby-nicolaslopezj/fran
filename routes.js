@@ -5,7 +5,7 @@ var getAfterAction = function(title) {
 		}
 		GAnalytics.pageview(this.route.getName());
 		SEO.set({
-			title: title ? title + ' - ' + orion.dictionary.get('seo.title') : orion.dictionary.get('seo.title'),
+			title: orion.dictionary.get('seo.title'),
 			link: {
 				icon: orion.dictionary.get('seo.favicon.url'),
 			},
