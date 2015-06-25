@@ -26,7 +26,7 @@ Meteor.methods({
     Email.send({
       to: orion.dictionary.get('social.email'), 
       from: orion.config.get('MAIL_FROM'), 
-      subject: 'Contacto página de la cosita', 
+      subject: 'Contacto Francisca Infante', 
       replyTo: doc.email,
       html: html
     })
